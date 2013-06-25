@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+   <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"struts-2.1.7.dtd">
+<struts>
+	<package name="struts2" extends="struts-default" namespace="/mylogin" >
+	<interceptors>
+            <interceptor name="SSS" class="com.cn.intercepter.intecepter"/>
+            </interceptors>
+	<action name="login_*" class="com.cn.struts2.Login" method="{1}">
+	          <interceptor-ref name="defaultStack"/>
+              <interceptor-ref name="SSS"/>
+	    <result name="success">/success.jsp</result>
+		<result name="fail" type="redirect">/fail.jsp</result>
+		<result name="input">/login.jsp</result>
+	</action>
+	</package>
+	
+	
+</struts>
